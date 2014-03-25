@@ -20,27 +20,33 @@ $(document).on("ready", function(){
 	}
 
 	attackOpponentPokemon = function(hpmin, hpmax){
-		$("div.opponent.pokemon img").removeClass('animated shake');
-		$("div.opponent.pokemon img").addClass('animated shake');
+		$(".opponent.pokemon img").removeClass();
+		$("div.user.pokemon img").addClass('animated shake').delay(400).queue(function(){
+			$("div.opponent.pokemon img").addClass('animated flash');
+			$(".user.pokemon img").removeClass().dequeue();
+		});
 		if(hpmin==0){
 			returnOpponentPokemon();
 		}
-		else{
+
 			$(".opponent div.meter span").animate({"width":hpmin/hpmax*100+"%"}, 500);
 			$(".opponent span.health").html(hpmin+"/"+hpmax);
-		}
+		
 	}
 
 	attackTrainerPokemon = function(hpmin, hpmax){
-		$("div.user.pokemon img").removeClass('animated shake');
-		$("div.user.pokemon img").addClass('animated shake');
+		$(".user.pokemon img").removeClass();
+		$("div.opponent.pokemon img").addClass('animated shake').delay(400).queue(function(){
+			$("div.user.pokemon img").addClass('animated flash');
+			$(".opponent.pokemon img").removeClass().dequeue();
+		});
 		if(hpmin==0){
 			returnTrainerPokemon();
 		}
-		else{
+
 			$(".user div.meter span").animate({"width":hpmin/hpmax*100+"%"}, 500);
 			$(".user span.health").html(hpmin+"/"+hpmax);
-		}
+		
 	}
 
 	returnOpponentPokemon = function(){
