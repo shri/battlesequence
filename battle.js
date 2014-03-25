@@ -12,7 +12,8 @@ $(document).on("ready", function(){
 	}
 
 	changeOpponentPokemon = function(name, hpmin, hpmax, level){
-		$("div.opponent.pokemon").html("<img src='"+"http://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toLowerCase()+".gif"+"'/>");
+		$(".opponent.pokemon img").addClass("animated fadeOutRight");
+		$("div.opponent.pokemon").delay(300).html("<img src='"+"http://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toLowerCase()+".gif"+"'/>");
 		$(".opponent div.meter span").width(hpmin/hpmax*100+"%");
 		$(".opponent span.health").html(hpmin+"/"+hpmax);
 		$(".opponent span.level").html(level);
@@ -47,6 +48,15 @@ $(document).on("ready", function(){
 			$(".user div.meter span").animate({"width":hpmin/hpmax*100+"%"}, 500);
 			$(".user span.health").html(hpmin+"/"+hpmax);
 		
+	}
+
+	battleEnd = function(success){
+		if(success==true){
+
+		}
+		else{
+
+		}
 	}
 
 	returnOpponentPokemon = function(){
