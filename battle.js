@@ -20,6 +20,8 @@ $(document).on("ready", function(){
 	}
 
 	attackOpponentPokemon = function(hpmin, hpmax){
+		$("div.opponent.pokemon img").removeClass('animated shake');
+		$("div.opponent.pokemon img").addClass('animated shake');
 		if(hpmin==0){
 			returnOpponentPokemon();
 		}
@@ -30,6 +32,8 @@ $(document).on("ready", function(){
 	}
 
 	attackTrainerPokemon = function(hpmin, hpmax){
+		$("div.user.pokemon img").removeClass('animated shake');
+		$("div.user.pokemon img").addClass('animated shake');
 		if(hpmin==0){
 			returnTrainerPokemon();
 		}
